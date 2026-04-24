@@ -15,7 +15,8 @@ function App() {
   const token = localStorage.getItem('token')
     try {
       if (token) {
-        const { data}= await api.get('/api/user/data', {headers: { Authorization: `Bearer ${token}` } })
+        const { data}= await api.get('/api/user/data', {headers: { Authorization:token } })
+
         if (data.user) {
               console.log(data.user);
           dispatch(login({token , user:data.user}))
