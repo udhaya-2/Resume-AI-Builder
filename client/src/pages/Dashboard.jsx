@@ -21,7 +21,6 @@ const Dashboard = () => {
    try {
 
       const {data} = await api.get('/api/user/resumes' , {headers:{Authorization: token}})
-      console.log(data);
       setAllResumes(data.resumes)
    } catch (error) {
     toast.error(error?.response?.data?.message || error.message)
